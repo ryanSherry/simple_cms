@@ -1,5 +1,7 @@
 class SubjectsController < ApplicationController
 
+  layout 'admin'
+
   def index
     @subjects = Subject.sorted
   end
@@ -34,7 +36,7 @@ class SubjectsController < ApplicationController
     # Find a new object using form parameters
     @subject = Subject.find(params[:id])
     # Update the object
-    if @subject.update_attributes(subject_params)
+    if @subject.update(subject_params)
       # If save succeeds, redirect to the show action
       flash[:notice] = "Subject updated successfully."
       redirect_to(subject_path(@subject))
