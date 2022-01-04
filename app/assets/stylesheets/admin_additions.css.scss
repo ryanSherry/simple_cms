@@ -111,7 +111,7 @@ span.status {
 /* Errors */
 .field-with-errors {
   label { color: #AA0000; }
-  input { }
+  input { border: 1px solid red; }
 }
 
 #error-explanation {
