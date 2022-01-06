@@ -2,6 +2,8 @@ class SubjectsController < ApplicationController
 
   layout 'admin'
 
+  before_action :subject_count, :only => [:show, :new, :create, :edit, :update]
+
   def index
     @subjects = Subject.sorted
   end
@@ -66,6 +68,11 @@ class SubjectsController < ApplicationController
 
   def subject_params
     params.require(:subject).permit(:name, :position, :visible, :created_at)
+  end
+
+  def subject_count
+    @subject_count = Subject.count
+    @subject_count += 1 if params[:action] != 'update'
   end
 
 end
