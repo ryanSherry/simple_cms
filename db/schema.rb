@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_06_194434) do
+ActiveRecord::Schema.define(version: 2022_01_14_052758) do
 
   create_table "admin_users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "first_name", limit: 25
@@ -32,12 +32,11 @@ ActiveRecord::Schema.define(version: 2022_01_06_194434) do
   create_table "pages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "subject_id"
     t.string "name"
-    t.integer "permalink"
+    t.text "permalink"
     t.integer "position"
     t.boolean "visible"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["permalink"], name: "index_pages_on_permalink"
     t.index ["position"], name: "index_pages_on_position"
     t.index ["subject_id"], name: "index_pages_on_subject_id"
   end
